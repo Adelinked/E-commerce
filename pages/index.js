@@ -189,7 +189,7 @@ const Index = () => {
           getQuestions={getQuestions}
         />
       )}
-      <Footer />;{" "}
+      <Footer />{" "}
     </>
   );
 };
