@@ -40,7 +40,7 @@ export default function Results({ questions, restart }) {
         <div className="details-div">
           {questions.map((q, index) => (
             <div key={q.question} style={{ display: "flex", flexWrap: "wrap" }}>
-              <span>{index + 1}.</span>
+              <span></span>
               <p
                 style={
                   !q.correct
@@ -48,7 +48,11 @@ export default function Results({ questions, restart }) {
                     : {}
                 }
                 dangerouslySetInnerHTML={{
-                  __html: q.question.slice(0, q.question.length - 1),
+                  __html:
+                    index +
+                    1 +
+                    "." +
+                    q.question.slice(0, q.question.length - 1),
                 }}
               />
               {q.correct === true ? (

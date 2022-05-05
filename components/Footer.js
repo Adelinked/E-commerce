@@ -6,7 +6,7 @@ export default function Footer() {
       style={{
         fontWeight: "600",
         textAlign: "center",
-        marginTop: "20px",
+        marginTop: "10px",
         minWidth: "350px",
       }}
     >

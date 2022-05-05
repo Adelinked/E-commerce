@@ -17,4 +17,4 @@ Here is a list of the technologies used in this project.
 3. [Trivia API](https://opentdb.com/api_config.php) -
    The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
 
-You can see the the result of the application deployed here: https://music-albums-adelinked.netlify.app/
+You can see the the result of the application deployed here: https://quiz-app-adelinked.netlify.app
