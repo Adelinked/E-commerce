@@ -112,7 +112,7 @@ const Index = () => {
       <div className="title-div">
         <h1>Quiz app</h1>
         <a
-          href="https://unsplash.com/developers"
+          href="https://opentdb.com/api_config.php"
           target="_blank"
           rel="noreferrer"
           title="Powered by Open Trivia"
@@ -124,6 +124,12 @@ const Index = () => {
           />
         </a>
       </div>
+      {!showForm && (
+        <div className="cat-div">
+          <p>Category: {formValues.category}</p>
+          <p>Difficulty: {formValues.difficulty}</p>
+        </div>
+      )}
       <p style={{ textAlign: "center", height: "20px", color: "red" }}>
         {error && "Something went wrong try again "}
       </p>

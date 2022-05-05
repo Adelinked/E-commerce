@@ -2,7 +2,14 @@ import "font-awesome/css/font-awesome.min.css";
 
 export default function Footer() {
   return (
-    <p style={{ fontWeight: "600", textAlign: "center", marginTop: "20px" }}>
+    <p
+      style={{
+        fontWeight: "600",
+        textAlign: "center",
+        marginTop: "20px",
+        minWidth: "350px",
+      }}
+    >
       Designed and coded by Adelinked{" "}
       <a
         style={{ fontSize: "22px", marginRight: "5px" }}

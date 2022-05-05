@@ -94,12 +94,16 @@ a {
 .title-div {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 40px;
   min-width: 350px;
 }
-
+.cat-div {
+  text-align: center;
+  text-transform: capitalize;
+  min-width: 350px;
+}
 .progress-div {
-  margin: 10px auto;
+  margin: 5px auto;
 }
 .question-container {
   padding: 20px;
@@ -140,7 +144,7 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
