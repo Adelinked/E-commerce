@@ -3,7 +3,7 @@
 This project contains the source code of a quiz app using the react useState hook.
 
 Here is a screenshot of the application:
-![App Screenshot](https://i.postimg.cc/XqXtx125/Screenshot-1.png)
+![App Screenshot](https://i.postimg.cc/sDmcQB2K/Screenshot-1.png)
 
 ## Built With
 
