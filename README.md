@@ -1,9 +1,9 @@
 # Quiz application developed with Next.js React framework
 
-This project contains the source code of a quiz app using Redux-thunk for state management.
+This project contains the source code of a quiz app using Redux Thunk for state management.
 
 Here are some screenshots of the application:
-![App Screenshot](https://i.postimg.cc/sDmcQB2K/Screenshot-1.png)
+![App Screenshot](https://i.postimg.cc/PrByRTnD/Screenshot-2.png)
 ![App Screenshot](https://i.postimg.cc/tRYBYKvw/Screenshot-2.png)
 
 ## Built With
@@ -21,4 +21,4 @@ Here is a list of the technologies used in this project.
 
 - [with-redux-thunk](https://github.com/vercel/next.js/tree/canary/examples/with-redux-thunk) - An example to show how to integrate Redux and Redux Thunk in Next.js.
 
-You can see the the result of the application deployed here: https://quiz-app-adelinked.netlify.app
+You can see the the result of the application deployed here: https://quiz-app-redux-adelinked.netlify.app
