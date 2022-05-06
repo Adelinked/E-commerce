@@ -1,0 +1,8 @@
+export const FETCH_QUESTIONS = "FETCH_QUESTIONS";
+export const LOADING_QUESTIONS = "LOADING_QUESTIONS";
+export const ERROR = "ERROR";
+export const SET_QUESTIONS = "SET_QUESTIONS";
+export const SET_CURRENT = "SET_CURRENT";
+export const SET_SHOW_FORM = "SET_SHOW_FORM";
+export const SET_SHOW_ANSWER_STATUS = "SET_SHOW_ANSWER_STATUS";
+export const RESTART = "RESTART";

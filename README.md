@@ -1,6 +1,6 @@
 # Quiz application developed with Next.js React framework
 
-This project contains the source code of a quiz app using the react useState hook.
+This project contains the source code of a quiz app using Redux-thunk for state management.
 
 Here are some screenshots of the application:
 ![App Screenshot](https://i.postimg.cc/sDmcQB2K/Screenshot-1.png)
@@ -16,5 +16,9 @@ Here is a list of the technologies used in this project.
 
 3. [Trivia API](https://opentdb.com/api_config.php) -
    The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
+
+## Resources used
+
+- [with-redux-thunk](https://github.com/vercel/next.js/tree/canary/examples/with-redux-thunk) - An example to show how to integrate Redux and Redux Thunk in Next.js.
 
 You can see the the result of the application deployed here: https://quiz-app-adelinked.netlify.app

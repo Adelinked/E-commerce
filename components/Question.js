@@ -1,32 +1,15 @@
 import Answer from "./Answer";
-const randomize = (arr) => {
-  const len = arr.length;
+import { useSelector } from "react-redux";
+export default function Question({ handleAnswer }) {
+  const { questions, current } = useSelector((state) => state.questions);
+  const question = questions[current];
+  const { all_answers } = question;
 
-  let newArr = [];
-  let index = 0;
-  let newIndex;
-  while (index < len) {
-    newIndex = Math.floor(Math.random() * len);
-    if (!newArr[newIndex]) {
-      newArr[newIndex] = arr[index];
-      index++;
-    }
-  }
-  return newArr;
-};
-
-export default function Question({
-  question,
-  handleAnswer,
-  all_answers,
-  current,
-}) {
-  const answers = all_answers;
   return (
     <div className="question-container">
-      <p dangerouslySetInnerHTML={{ __html: question }} />
+      <p dangerouslySetInnerHTML={{ __html: question.question }} />
 
-      {answers.map((a, index) => (
+      {all_answers.map((a, index) => (
         <Answer
           key={a}
           id={String(a) + String(current)}

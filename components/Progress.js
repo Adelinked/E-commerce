@@ -1,4 +1,7 @@
-export default function ({ questions, current }) {
+import { useSelector } from "react-redux";
+
+export default function () {
+  const { questions, current } = useSelector((state) => state.questions);
   return (
     <div className="progress-div">
       {" "}

@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { restart } from "../store/actions/questionsAction";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function Results({ questions, restart }) {
+export default function Results() {
   const [details, setDetails] = useState(false);
+  const { questions } = useSelector((state) => state.questions);
+  const dispatch = useDispatch();
   const result = Math.floor(
     (questions.reduce(
       (prev, curr) => (curr.correct === true ? (prev = prev + 1) : prev),
@@ -19,7 +23,7 @@ export default function Results({ questions, restart }) {
 
         <button
           onClick={() => {
-            restart();
+            dispatch(restart());
           }}
         >
           Restart
