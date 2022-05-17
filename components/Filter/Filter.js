@@ -113,7 +113,7 @@ export default () => {
             name="freeShipping"
             id="freeShipping"
             onChange={handleChange}
-            value={filter.freeShipping}
+            checked={filter.freeShipping}
           />
         </label>
         <button
