@@ -1,0 +1,53 @@
+.filterContainer {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.filterForm {
+  padding: 10px;
+  padding-top: 128px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8rem;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.filterForm > input,
+.filterForm > select {
+  font-size: 1.8rem;
+  width: 100%;
+  padding: 5px;
+  color: var(--color-bgd);
+  background-color: var(--color-font-light);
+  cursor: pointer;
+}
+
+.filterForm > input:hover {
+  color: var(--color-font-light);
+  background-color: var(--color-bgd);
+}
+
+.filterForm > label,
+.filterForm > button {
+  margin-top: 10px;
+}
+
+.filterForm > label {
+  text-align: left;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .filterForm > * {
+    width: 50%;
+  }
+  .filterForm {
+    padding-top: 5vh;
+    position: relative;
+    width: 100%;
+  }
+}

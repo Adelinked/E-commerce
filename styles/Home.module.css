@@ -1,0 +1,97 @@
+.container {
+  height: 90vh;
+  width: 100%;
+}
+
+.indexDiv {
+  padding: 30px;
+  padding-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.indexTextDiv,
+.indexImgDiv {
+  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.indexFeaturedDiv {
+  padding: 30px;
+  padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.indexFeaturedImgDiv {
+  padding: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+@media (max-width: 992px) {
+  .indexTitles {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .indexFeaturedImgDiv {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .indexDiv {
+    flex-direction: column;
+  }
+  .indexTextDiv,
+  .indexImgDiv {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.subsTextDiv {
+  padding: 20px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 350px;
+}
+
+.subsTextDiv h3 {
+  font-size: 2rem;
+}
+
+.subscribeForm {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+
+@media (max-width: 768px) {
+  .subsTextDiv {
+    padding: 10px;
+    width: 90%;
+  }
+  .subscribeForm {
+    width: 100%;
+    background-color: aqua;
+  }
+}
+
+@media (max-width: 400px) {
+  .subscribeForm {
+    flex-direction: column;
+    align-items: center;
+  }
+  .subsTextDiv h3 {
+    font-size: 1.8rem;
+  }
+}

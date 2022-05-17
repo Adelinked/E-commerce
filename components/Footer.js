@@ -8,6 +8,8 @@ export default function Footer() {
         textAlign: "center",
         marginTop: "10px",
         minWidth: "350px",
+        borderTop: "2px var(--color-sub) solid",
+        backgroundColor: "var(--color-bgd2)",
       }}
     >
       Designed and coded by Adelinked{" "}

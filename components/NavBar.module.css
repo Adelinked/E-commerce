@@ -1,0 +1,118 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: var(--color-font-light);
+  background-color: var(--color-bgd3);
+  width: 100%;
+  min-width: 350px;
+  height: 12vh;
+  padding: 0 5%;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 16px 16px rgba(0, 0, 0, 0.23);
+  transition: top 0.3 ease-out;
+}
+
+.navbar a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-align: center;
+  height: 100%;
+  font-size: 2.2rem;
+  font-weight: 700;
+  padding: 0 2.2rem;
+}
+
+.themeSwitch {
+  padding: 1%;
+  width: 2%;
+  color: var(--color-switch);
+  font-size: 3.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+.openNav,
+.closeNav {
+  color: var(--color-sub);
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.closeNav {
+  padding: 2%;
+  margin-left: 80%;
+}
+.openNav {
+  display: none;
+}
+
+.vertNavbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 100%;
+  color: var(--color-font-light);
+  background-color: var(--color-bgd3);
+  width: 100%;
+  min-width: 350px;
+  padding-left: 2%;
+  padding-right: 1%;
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 16px 16px rgba(0, 0, 0, 0.23);
+  opacity: 0.85;
+  transition: left 0.3 ease-out;
+}
+
+.vertNavbar > a {
+  font-size: 2.5rem;
+  margin: 10px 0;
+}
+
+.cartLogOpen {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  color: var(--color-font);
+  padding: 0 1rem;
+}
+
+.loginContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .navbar > a {
+    display: none;
+    font-size: 3.5rem;
+  }
+  .openNav {
+    display: block;
+  }
+  .cartLogOpen {
+    margin: 0 0 0 52%;
+  }
+}
+
+@media (max-width: 400px) {
+  .cartLogOpen {
+    margin: 0 0 0 40%;
+  }
+}
