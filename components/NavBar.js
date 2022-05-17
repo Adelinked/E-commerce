@@ -30,7 +30,7 @@ export default () => {
   useEffect(() => {
     document.documentElement.className = theme;
     setThemeLocal({ theme: theme });
-    setCartLocal({ cart: cart.cart });
+    setCartLocal({ cart: cart ? cart.cart : {} });
   }, [globalState]);
 
   useEffect(() => {
