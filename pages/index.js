@@ -87,7 +87,12 @@ const Index = ({ productsServ }) => {
             type="email"
             name="subscribe"
             placeholder="Enter your email"
-            style={{ fontSize: "1.8rem", height: "38px", padding: "5px" }}
+            style={{
+              fontSize: "1.8rem",
+              height: "38px",
+              padding: "5px",
+              margin: "3px",
+            }}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
