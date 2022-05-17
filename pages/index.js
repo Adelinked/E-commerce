@@ -19,8 +19,8 @@ const Index = ({ productsServ }) => {
   return (
     <>
       <Head>
-        <title>Ecomerce Home</title>
-        <meta name="description" content="Ecomerce app" />
+        <title>Ecommerce Home</title>
+        <meta name="description" content="Ecommerce app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />

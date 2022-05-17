@@ -24,13 +24,13 @@ export default () => {
 
   useEffect(() => {
     setGlobalState((themeLocal && themeLocal.theme) ?? "dark-theme");
-    dispatch(setAllCart(cartLocal.cart ?? []));
+    dispatch(setAllCart((cartLocal && cartLocal.cart) ?? []));
   }, []);
 
   useEffect(() => {
     document.documentElement.className = theme;
     setThemeLocal({ theme: theme });
-    setCartLocal({ cart: cart ? cart.cart : {} });
+    setCartLocal({ cart: cart.cart });
   }, [globalState]);
 
   useEffect(() => {
