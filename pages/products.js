@@ -6,7 +6,7 @@ import Navbar from "../components/NavBar";
 import styles from "../styles/Products.module.css";
 import axios from "axios";
 import Product from "../components/Product";
-import Sort from "../components/sort";
+import Sort from "../components/Sort";
 import DisplayProducts from "../components/DisplayProducts";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../store/actions/productsAction";
@@ -29,11 +29,19 @@ const Products = (
     setLoading(true);
     const url = "https://fakestoreapi.com/products";
     const data = await axios.get(url);
-    dispatch(setProducts(data.data));
+    dispatch(
+      setProducts(
+        data.data.map((i, index) => {
+          if (index % 2 === 0) {
+            return { ...i, freeShipping: true };
+          } else return { ...i, freeShipping: false };
+        })
+      )
+    );
     setLoading(false);
   };
   let filtredProducts = [...products];
-  const { title, category, price } = filter;
+  const { title, category, price, freeShipping } = filter;
   if (title) {
     filtredProducts = filtredProducts.filter((i) =>
       i.title.toLowerCase().includes(title.toLowerCase())
@@ -44,6 +52,10 @@ const Products = (
   }
   if (price > 0) {
     filtredProducts = filtredProducts.filter((i) => i.price <= price);
+  }
+
+  if (freeShipping) {
+    filtredProducts = filtredProducts.filter((i) => i.freeShipping === true);
   }
 
   return (
