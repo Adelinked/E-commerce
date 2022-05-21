@@ -49,6 +49,7 @@
   margin-left: 1rem;
   padding: 1%;
   width: 2%;
+  display: block;
 }
 
 .loginTxt {
@@ -117,4 +118,7 @@
 }
 
 @media (max-width: 576px) {
+  .signinContainer {
+    margin: 20px 5px;
+  }
 }
