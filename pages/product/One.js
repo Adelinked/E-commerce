@@ -10,33 +10,57 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocalStorageValue } from "@mantine/hooks";
 import axios from "axios";
 
-export default function OneProduct({ productServ }) {
+export default function OneProduct(
+  {
+    /*productServ*/
+  }
+) {
   const { query } = useRouter();
+  const [productCli, setProductCli] = useState();
+  const [loading, setLoading] = useState(false);
   const { products, current } = useSelector((state) => state.products);
+
   const [currProdLocal, setCurrProdLocal] = useLocalStorageValue({
     key: "currProd",
   });
   const product = products[current - 1] ?? currProdLocal.currProd;
+
+  useEffect(() => {
+    getProduct();
+  }, [query]);
+
+  const getProduct = async () => {
+    setLoading(true);
+    const url = `/api/${query.id}`;
+    const data = await axios.get(url);
+    setProductCli(data.data[0]);
+    setLoading(false);
+  };
+
   return (
     <>
       <Head>
-        <title>Ecomerce One Product</title>
+        <title>E-commerce One Product</title>
         <meta name="description" content="Ecomerce app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
-      <div>
-        <ProductDetails {...productServ} />
-      </div>
+      {!loading && (
+        <div>
+          <ProductDetails {...productCli} />
+        </div>
+      )}
+      {loading && <div>...loading</div>}
 
       <Footer />
     </>
   );
 }
-
+/*
 export async function getServerSideProps(context) {
   const id = context.query.id;
   const url = `https://fakestoreapi.com/products/${id}`;
+
   const data = await axios.get(url);
   return { props: { productServ: data.data } };
-}
+}*/
