@@ -36,26 +36,6 @@
   grid-gap: 10px;
 }
 
-@media (max-width: 992px) {
-  .indexTitles {
-    font-size: 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .indexFeaturedImgDiv {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .indexDiv {
-    flex-direction: column;
-  }
-  .indexTextDiv,
-  .indexImgDiv {
-    width: 100%;
-    padding: 10px;
-  }
-}
-
 .subsTextDiv {
   padding: 20px;
   width: 50%;
@@ -75,7 +55,32 @@
   width: 60%;
 }
 
+.subscribeForm input {
+  font-size: 1.8rem;
+  height: 38px;
+  padding: 5px;
+  margin: 3px;
+  width: 70%;
+}
+
+@media (max-width: 992px) {
+  .indexTitles {
+    font-size: 3rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .indexFeaturedImgDiv {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .indexDiv {
+    flex-direction: column;
+  }
+  .indexTextDiv,
+  .indexImgDiv {
+    width: 100%;
+    padding: 10px;
+  }
   .subsTextDiv {
     padding: 10px;
     width: 90%;
@@ -89,6 +94,9 @@
   .subscribeForm {
     flex-direction: column;
     align-items: center;
+  }
+  .subscribeForm input {
+    width: 100%;
   }
   .subsTextDiv h3 {
     font-size: 1.8rem;

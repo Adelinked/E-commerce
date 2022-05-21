@@ -1,5 +1,5 @@
 import "font-awesome/css/font-awesome.min.css";
-import styles from "./cartStyle.module.css";
+import styles from "./cart.module.css";
 export const Item = ({
   item,
   handleRemove,

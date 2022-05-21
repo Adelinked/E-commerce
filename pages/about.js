@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-
+import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 
@@ -8,7 +8,7 @@ const About = () => {
   return (
     <>
       <Head>
-        <title>Ecomerce Home</title>
+        <title>E-commerce Home</title>
         <meta name="description" content="Ecomerce app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

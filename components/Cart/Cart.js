@@ -4,14 +4,11 @@ import { Item } from "./Item";
 import { Nav } from "./Nav";
 import { Total } from "./Total";
 import { useEffect, useState, useCallback } from "react";
-import styles from "./cart.module.css";
+import styles from "./cartStyle.module.css";
 import { useDispatch, useSelector, connect } from "react-redux";
+import { useRouter } from "next/router";
 
-import {
-  setCart,
-  fetchItems,
-  showCartNav,
-} from "../../store/actions/cartAction";
+import { setCart, showCartNav } from "../../store/actions/cartAction";
 
 export default function () {
   const url = "./api/";
@@ -33,7 +30,7 @@ export default function () {
       document.getElementById("cartNav").style.left = "100%";
     }
   }, [show]);
-
+  const router = useRouter();
   return (
     <div className={styles.cartNav} id="cartNav">
       <span className={styles.cartNavTitle}>
@@ -61,12 +58,23 @@ export default function () {
       <div className={styles.totalClear}>
         <Total items={cart.cart} />
         {cart.cart.length > 0 && (
-          <button
-            onClick={() => dispatch(setCart("CLEAR_CART"))}
-            className="button"
-          >
-            Clear cart
-          </button>
+          <div className={styles.cartCmd}>
+            <button
+              onClick={() => dispatch(setCart("CLEAR_CART"))}
+              className="button"
+            >
+              Clear cart
+            </button>
+            <button
+              onClick={() => {
+                dispatch(showCartNav(false));
+                router.push("/checkout");
+              }}
+              className="button"
+            >
+              Checkout <i className="fa fa-credit-card"></i>
+            </button>
+          </div>
         )}
       </div>
     </div>

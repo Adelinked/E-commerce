@@ -27,16 +27,18 @@ const Products = (
 
   const getProducts = async () => {
     setLoading(true);
-    const url = "https://fakestoreapi.com/products";
+    //const url = "https://fakestoreapi.com/products";
+    const url = "./api";
     const data = await axios.get(url);
     dispatch(
-      setProducts(
+      /*setProducts(
         data.data.map((i, index) => {
           if (index % 2 === 0) {
             return { ...i, freeShipping: true };
           } else return { ...i, freeShipping: false };
         })
-      )
+      )*/
+      setProducts(data.data)
     );
     setLoading(false);
   };

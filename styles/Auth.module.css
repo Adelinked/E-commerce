@@ -1,0 +1,63 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 300px;
+  min-height: 250px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  padding: 10px;
+}
+.loginTitle {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.providerButton {
+  width: 250px;
+  margin: 10px;
+  font-weight: 700;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+}
+.profilesAside {
+  padding: 10px;
+  width: 20%;
+  min-width: 180px;
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.title {
+  margin: 20px 0;
+  line-height: 1.15;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.user {
+  width: 500px;
+}
+
+.avatar {
+  border-radius: 20px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}

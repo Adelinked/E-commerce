@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrProduct } from "../store/actions/productsAction";
 import { useLocalStorageValue } from "@mantine/hooks";
+import { setAppLoading } from "../store/actions/appAction";
 
 export default function Product(props) {
   const { title, description, image, price, id, fromIndex = false } = props;
@@ -12,6 +13,8 @@ export default function Product(props) {
   });
   const dispatch = useDispatch();
   const { products, display } = useSelector((state) => state.products);
+  const { loading } = useSelector((state) => state.app);
+
   return (
     <div className={styles.productPad}>
       {display === "0" || fromIndex ? (
@@ -39,6 +42,7 @@ export default function Product(props) {
         <a
           onClick={() => {
             dispatch(setCurrProduct(id));
+            dispatch(setAppLoading(true));
             setCurrProdLocal({ currProd: products[id - 1] });
           }}
         >

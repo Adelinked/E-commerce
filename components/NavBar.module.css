@@ -15,6 +15,7 @@
   z-index: 1;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 16px 16px rgba(0, 0, 0, 0.23);
   transition: top 0.3 ease-out;
+  user-select: none;
 }
 
 .navbar a {
@@ -29,13 +30,15 @@
 }
 
 .themeSwitch {
+  margin-bottom: 10px;
   padding: 1%;
-  width: 2%;
+  width: 30%;
   color: var(--color-switch);
   font-size: 3.5rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 .openNav,
 .closeNav {
@@ -53,6 +56,12 @@
 }
 .openNav {
   display: none;
+}
+
+.closeNav:hover {
+  color: rgb(238, 124, 11);
+  opacity: 100%;
+  rotate: 90deg;
 }
 
 .vertNavbar {
@@ -87,17 +96,29 @@
   justify-content: flex-end;
   width: 100%;
   height: 100%;
-  color: var(--color-font);
   padding: 0 1rem;
 }
 
 .loginContainer {
-  display: flex;
-  align-items: center;
-  margin-right: 1.5rem;
   font-size: 2.5rem;
   cursor: pointer;
 }
+
+.appLoading {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-bgd3-trsp);
+  color: var(--color-font);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+}
+
 @media (max-width: 768px) {
   .navbar > a {
     display: none;

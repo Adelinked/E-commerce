@@ -6,9 +6,18 @@ import { useLocalStorageValue } from "@mantine/hooks";
 import { useAppContext } from "../context";
 import Cart from "./Cart/Cart";
 import { Nav } from "./Cart/Nav";
-import { useDispatch, useSelector, connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAllCart } from "../store/actions/cartAction";
+import { UserNav } from "../components/User/UserNav";
+import UserLogin from "../components/User/UserLogin";
+import { useSession } from "next-auth/react";
+import AppLoading from "../components/AppLoading";
+import { setAppLoading } from "../store/actions/appAction";
+import { useRouter } from "next/router";
+
 export default () => {
+  const { data: session } = useSession();
+
   const cart = useSelector((state) => state.cart);
   const [logged, setLogged] = useState(false);
   const [show, setShow] = useState(true);
@@ -71,6 +80,13 @@ export default () => {
 
     setShow((show) => !show);
   };
+  const { query } = useRouter();
+  useEffect(() => {
+    dispatch(setAppLoading(false));
+  }, [query]);
+
+  const { loading } = useSelector((state) => state.app);
+
   return (
     <>
       <nav className={styles.navbar} id="navbar">
@@ -86,33 +102,49 @@ export default () => {
           )}
         </span>
         <Link href="/">
-          <a>Home</a>
-        </Link>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
-        <Link href="/products">
-          <a>Products</a>
-        </Link>
-        {logged && <a href="#contact">Chekout</a>}
-        <div className={styles.cartLogOpen}>
-          <Nav items={cart.cart} />
-          <div
-            className={styles.loginContainer}
+          <a
             onClick={() => {
-              setLogged((logged) => !logged);
+              dispatch(setAppLoading(true));
             }}
           >
-            {!logged ? "Login" : "Logout"}
-            {!logged ? (
-              <i
-                className="fa fa-user-plus"
-                style={{ marginLeft: ".3rem" }}
-              ></i>
-            ) : (
-              <i className="fa fa-user" style={{ marginLeft: ".3rem" }}></i>
-            )}
+            Home
+          </a>
+        </Link>
+        <Link href="/about">
+          <a
+            onClick={() => {
+              dispatch(setAppLoading(true));
+            }}
+          >
+            About
+          </a>
+        </Link>
+        <Link href="/products">
+          <a
+            onClick={() => {
+              dispatch(setAppLoading(true));
+            }}
+          >
+            Products
+          </a>
+        </Link>
+        {session && (
+          <Link href="/checkout">
+            <a
+              onClick={() => {
+                dispatch(setAppLoading(true));
+              }}
+            >
+              Checkout
+            </a>
+          </Link>
+        )}
+        <div className={styles.cartLogOpen}>
+          <Nav items={cart.cart} />
+          <div className={styles.loginContainer}>
+            <UserNav />
           </div>
+
           <span className={styles.openNav} onClick={openVertNav}>
             <i className="fa fa-bars"></i>
           </span>
@@ -135,17 +167,51 @@ export default () => {
             <i className="fa fa-sun-o"></i>
           )}
         </span>
+        <div className={styles.loginContainer}>
+          <UserNav />
+        </div>
         <Link href="/">
-          <a>Home</a>
+          <a
+            style={{ marginTop: "30px" }}
+            onClick={() => {
+              dispatch(setAppLoading(true));
+            }}
+          >
+            Home
+          </a>
         </Link>
         <Link href="/about">
-          <a>About</a>
+          <a
+            onClick={() => {
+              dispatch(setAppLoading(true));
+            }}
+          >
+            About
+          </a>
         </Link>
         <Link href="/products">
-          <a>Products</a>
+          <a
+            onClick={() => {
+              dispatch(setAppLoading(true));
+            }}
+          >
+            Products
+          </a>
         </Link>
-        <a href="#contact">Chekout</a>
+        {session && (
+          <Link href="/checkout">
+            <a
+              onClick={() => {
+                dispatch(setAppLoading(true));
+              }}
+            >
+              Checkout
+            </a>
+          </Link>
+        )}
       </nav>
+      <UserLogin />
+      {loading && <AppLoading />}
     </>
   );
 };

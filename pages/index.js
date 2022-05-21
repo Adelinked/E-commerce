@@ -1,5 +1,4 @@
 import Head from "next/head";
-
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import styles from "../styles/Home.module.css";
@@ -7,6 +6,8 @@ import { useRouter } from "next/router";
 import Product from "../components/Product";
 import axios from "axios";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setAppLoading } from "../store/actions/appAction";
 function ValidateEmail(mail) {
   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
     return true;
@@ -16,10 +17,11 @@ function ValidateEmail(mail) {
 const Index = ({ productsServ }) => {
   const router = useRouter();
   const [email, setEmail] = useState();
+  const dispatch = useDispatch();
   return (
     <>
       <Head>
-        <title>Ecommerce Home</title>
+        <title>E-commerce Home</title>
         <meta name="description" content="Ecommerce app" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -46,6 +48,7 @@ const Index = ({ productsServ }) => {
           <button
             style={{ marginTop: "10px" }}
             onClick={() => {
+              dispatch(setAppLoading(false));
               router.push("/products");
             }}
           >
@@ -64,6 +67,7 @@ const Index = ({ productsServ }) => {
         </div>
         <button
           onClick={() => {
+            dispatch(setAppLoading(true));
             router.push("/products");
           }}
         >
@@ -85,12 +89,6 @@ const Index = ({ productsServ }) => {
             type="email"
             name="subscribe"
             placeholder="Enter your email"
-            style={{
-              fontSize: "1.8rem",
-              height: "38px",
-              padding: "5px",
-              margin: "3px",
-            }}
             onChange={(e) => {
               setEmail(e.target.value);
             }}

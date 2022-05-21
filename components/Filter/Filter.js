@@ -114,6 +114,7 @@ export default () => {
             id="freeShipping"
             onChange={handleChange}
             checked={filter.freeShipping}
+            style={{ cursor: "pointer" }}
           />
         </label>
         <button

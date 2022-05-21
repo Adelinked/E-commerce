@@ -19,7 +19,7 @@ const initialState = {
   current: "",
   display: "0",
   sort: "0",
-  filter: { title: "", price: 0, category: "" },
+  filter: { title: "", price: 0, category: "", freeShipping: false },
 };
 export default function (state = initialState, action) {
   switch (action.type) {
@@ -110,7 +110,7 @@ export default function (state = initialState, action) {
     case SET_PRODUCTS_DISPLAY:
       return { ...state, display: action.payload };
 
-    case SET_FILTER /* moved the filter to apply it locally */:
+    case SET_FILTER /* moved the filter logic to apply it locally */:
       /*let newFiltredProd = [...state.products];
       const { title, category, price } = action.payload;
       if (title) {
@@ -133,7 +133,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         filtredProducts: state.products,
-        filter: { title: "", price: 0, category: "" },
+        filter: { title: "", price: 0, category: "", freeShipping: false },
       };
     case REMOVE_PRODUCT:
       return {

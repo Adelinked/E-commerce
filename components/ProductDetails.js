@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import useSWR from "swr";
 
 import styles from "./ProductDetails.module.css";
 import { addProduct } from "../store/actions/cartAction";
@@ -20,7 +18,7 @@ export const ProductDetails = (props) => {
     products[current - 1] ?? currProdLocal.currProd
   );
   const [quantity, setQuantity] = useState(1);
-  const [loading, setLoading] = useState(false);
+  const [disable, setDisable] = useState(false);
 
   //let product = products[current - 1] ?? currProdLocal.currProd;
   //const prodId = currProdLocal.currProd && currProdLocal.currProd.id;
@@ -73,10 +71,10 @@ export const ProductDetails = (props) => {
           </span>
 
           <button
-            disabled={loading}
+            disabled={disable}
             style={{ marginLeft: "10px" }}
             onClick={() => {
-              setLoading(true);
+              setDisable(true);
               dispatch(
                 addProduct({
                   ...props,
@@ -85,7 +83,7 @@ export const ProductDetails = (props) => {
                 })
               );
               setTimeout(() => {
-                setLoading(false);
+                setDisable(false);
               }, 1000);
             }}
           >
@@ -99,7 +97,7 @@ export const ProductDetails = (props) => {
               marginTop: "10px",
             }}
           >
-            {loading && <Nav items={cart.cart} />}
+            {disable && <Nav items={cart.cart} />}
           </div>
         </div>
       </div>
