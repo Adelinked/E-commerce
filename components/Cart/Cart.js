@@ -54,7 +54,7 @@ export default function () {
           handleRemove={() => dispatch(setCart("REMOVE_ITEM", i.id))}
         />
       ))}
-      {cart.cart.length > 0 && <hr className="hr" />}
+      {cart.cart.length > 0 && <hr className={styles.hr} />}
       <div className={styles.totalClear}>
         <Total items={cart.cart} />
         {cart.cart.length > 0 && (
