@@ -162,7 +162,7 @@ export default function ({ csrfToken }) {
                           id={provider.id}
                           size="large"
                           sx={{
-                            width: "250px",
+                            width: "260px",
                             margin: "10px",
                             fontWeight: "700",
                             fontSize: "1.5rem",
@@ -170,13 +170,14 @@ export default function ({ csrfToken }) {
                           type="submit"
                           variant="contained"
                         >
-                          Sign in with {provider.name}
+                          Sign in with {provider.name} &nbsp;&nbsp;
+                          <i className="fa fa-google"></i>
                         </GoogleButton>
                       ) : (
                         <Button
                           id={provider.id}
                           sx={{
-                            width: "250px",
+                            width: "260px",
                             margin: "10px",
                             fontWeight: "700",
                             fontSize: "1.5rem",
@@ -185,7 +186,10 @@ export default function ({ csrfToken }) {
                           variant="contained"
                           type="submit"
                         >
-                          Sign in with {provider.name}
+                          <span>
+                            Sign in with {provider.name}{" "}
+                            <i className="fa fa-facebook"></i>
+                          </span>
                         </Button>
                       )}
                     </div>
@@ -197,6 +201,10 @@ export default function ({ csrfToken }) {
           </>
         )}
       </div>
+      <p style={{ marginBottom: "10px" }}>Secured by</p>
+      <a href="https://next-auth.js.org/" target="_blank" rel="noreferrer">
+        <img className={styles.nextAuthLogo} src="/auth.png" />
+      </a>
     </div>
   );
 }

@@ -139,6 +139,7 @@ const Checkout = () => {
               onClick={() => {
                 dispatch(showUserLogin(true));
               }}
+              style={{ color: "var(--color-font)" }}
             >
               Sign in
             </a>{" "}

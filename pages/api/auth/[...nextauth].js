@@ -19,10 +19,7 @@ const options = {
     }),
   ],
   adapter: MongoDBAdapter(clientPromise),
-  pages: {
-    signIn: "../auth/signin",
-    error: "/auth/signin",
-  },
+
   callbacks: {
     session: async ({ session, token, user, pro }) => {
       if (session?.user) {

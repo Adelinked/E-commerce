@@ -110,6 +110,9 @@
   margin: 10px;
   font-weight: 700;
 }
+.nextAuthLogo {
+  width: 180px;
+}
 
 @media (max-width: 768px) {
   .usr {
