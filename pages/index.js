@@ -8,12 +8,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAppLoading } from "../store/actions/appAction";
-function ValidateEmail(mail) {
-  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-    return true;
-  }
-  return false;
-}
+import { ValidateEmail } from "../utils/functions";
+
 const Index = ({ productsServ }) => {
   const router = useRouter();
   const [email, setEmail] = useState();

@@ -1,3 +1,10 @@
+export function ValidateEmail(mail) {
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+    return true;
+  }
+  return false;
+}
+
 export const randomize = (arr) => {
   const len = arr.length;
 
