@@ -5,15 +5,29 @@ import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import Product from "../components/Product";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setAppLoading } from "../store/actions/appAction";
 import { ValidateEmail } from "../utils/functions";
 
-const Index = ({ productsServ }) => {
+const Index = (/*{ productsServ }*/) => {
+  const [products, setProducts] = useState([]);
   const router = useRouter();
   const [email, setEmail] = useState();
   const dispatch = useDispatch();
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  const getProducts = async () => {
+    //const url = "https://fakestoreapi.com/products";
+    const url = "./api";
+    try {
+      const data = await axios.get(url);
+      setProducts(data.data);
+    } catch (e) {}
+  };
+
   return (
     <>
       <Head>
@@ -57,7 +71,7 @@ const Index = ({ productsServ }) => {
           <h2 className={styles.indexTitles}>Featured Products</h2>
         </div>
         <div className={styles.indexFeaturedImgDiv}>
-          {productsServ.slice(1, 4).map((p) => (
+          {products.slice(1, 4).map((p) => (
             <Product key={p.id} {...p} fromIndex={true} />
           ))}
         </div>
@@ -110,9 +124,10 @@ const Index = ({ productsServ }) => {
 };
 
 export default Index;
-
+/*
 export async function getServerSideProps(context) {
   const url = "https://fakestoreapi.com/products?limit=5";
   const data = await axios.get(url);
   return { props: { productsServ: data.data } };
 }
+*/
