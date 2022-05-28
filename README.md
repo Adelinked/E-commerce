@@ -1,10 +1,11 @@
-# Quiz application developed with Next.js React framework
+# E-commerce application developed with Next.js React framework
 
-This project contains the source code of a quiz app using Redux Thunk for state management.
+This project contains the source code of a E-commerce app using Redux Thunk for state management.
 
 Here are some screenshots of the application:
-![App Screenshot](https://i.postimg.cc/PrByRTnD/Screenshot-2.png)
-![App Screenshot](https://i.postimg.cc/tRYBYKvw/Screenshot-2.png)
+![App Screenshot](https://i.postimg.cc/7YVxtsXp/products.png)
+![App Screenshot](https://i.postimg.cc/CxzWCm2C/cart.png)
+![App Screenshot](https://i.postimg.cc/brRjMr0Q/Screenshot-1.png)
 
 ## Built With
 
@@ -14,11 +15,14 @@ Here is a list of the technologies used in this project.
 
 2. [React](https://reactjs.org/) - A very popular JavaScript DOM rendering framework for building scalable web applications using a component-based architecture.
 
-3. [Trivia API](https://opentdb.com/api_config.php) -
-   The Open Trivia Database provides a completely free JSON API for use in programming projects. Use of this API does not require a API Key, just generate the URL below use it in your own application to retrieve trivia questions.
+3. [NextAuth](https://next-auth.js.org) - NextAuth.js is a complete open source authentication solution for Next.js applications. It is designed from the ground up to support Next.js and Serverless.
 
 ## Resources used
 
 - [with-redux-thunk](https://github.com/vercel/next.js/tree/canary/examples/with-redux-thunk) - An example to show how to integrate Redux and Redux Thunk in Next.js.
 
-You can see the the result of the application deployed here: https://quiz-app-redux-adelinked.netlify.app
+- [collect payments from an e-commerce website using Stripe](https://alterclass.io/tutorials/create-an-ecommerce-website-with-nextjs-and-stripe) - Create an eCommerce website with Next.js and Stripe.
+
+- [Fake store API](https://fakestoreapi.com) - Fake store rest API for your e-commerce or shopping website prototype.
+
+You can see the the result of the application deployed here: https://e-commerce-adelinked.netlify.app
