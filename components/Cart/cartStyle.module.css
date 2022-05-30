@@ -42,7 +42,7 @@
 .closeNav:hover {
   color: rgb(238, 124, 11);
   opacity: 100%;
-  rotate: 90deg;
+  transform: rotate(90deg);
 }
 
 .count {
@@ -120,6 +120,4 @@
 }
 
 @media (max-width: 768px) {
-  .cartIcon {
-  }
 }
