@@ -1,9 +1,6 @@
 name: Main workflow
 on:
   push:
-    branches:
-      - main
-    types: [opened, synchronize, reopened]
 jobs:
   test:
     runs-on: ubuntu-latest
