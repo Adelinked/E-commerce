@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
+    "build": "next build",
+    "build:static": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
