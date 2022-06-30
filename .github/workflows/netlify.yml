@@ -1,25 +1,12 @@
-# .github/workflows/netlify.yml
-name: Build and Deploy to Netlify
+name: nightly-netlify-build
+
 on:
   push:
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
-      - name: Use Node.js 14.x
-        #  uses: nwtgck/actions-netlify@v1.2
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - run: npm install
-      - run: npm run build --if-present
-        #- run: npm run test
-      - name: Deploy to netlify
-        run: curl -X POST -d {} ${{secrets.NETLIFY_HOOK}}
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+    steps:
+      - name: trigger netlify build
+        run: |
+          curl -X POST -d '{}' ${{secrets.NETLIFY_HOOK}}
