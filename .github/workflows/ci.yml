@@ -6,14 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 10.x
       - name: npm install, build
         run: |
           npm install
-          npm run build:static
+          npm run build
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.8.x
