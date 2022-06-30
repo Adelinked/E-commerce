@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next export",
-    "start": "next start"
+    "build": "next build",
+    "start": "next export"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
