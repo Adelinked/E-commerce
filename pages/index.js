@@ -39,7 +39,6 @@ const Index = (/*{ productsServ }*/) => {
       <div className={styles.indexDiv}>
         <div className={styles.indexImgDiv}>
           <img style={{ width: "100%" }} src="/goods.jpg"></img>
-          <p style={{ color: "red" }}>Test CI 7</p>
         </div>
 
         <div className={styles.indexTextDiv}>
