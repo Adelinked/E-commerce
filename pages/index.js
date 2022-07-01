@@ -43,13 +43,7 @@ const Index = (/*{ productsServ }*/) => {
       <Navbar />
       <div className={styles.indexDiv}>
         <div className={styles.indexImgDiv}>
-          <Image
-            loader={GraphCMSImageLoader}
-            src="/goods.jpg"
-            alt="goods image"
-            width={800}
-            height={535}
-          />
+          <img src="/goods.jpg" alt="goods image" width={800} height={535} />
         </div>
 
         <div className={styles.indexTextDiv}>
