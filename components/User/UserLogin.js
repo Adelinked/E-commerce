@@ -202,8 +202,17 @@ export default function ({ csrfToken }) {
         )}
       </div>
       <p style={{ marginBottom: "10px" }}>Secured by</p>
-      <a href="https://next-auth.js.org/" target="_blank" rel="noreferrer">
-        <img className={styles.nextAuthLogo} src="/auth.png" />
+      <a
+        href="https://next-auth.js.org/"
+        title="nextAuth web page"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img
+          className={styles.nextAuthLogo}
+          src="/auth.png"
+          alt="nextAuthLogo"
+        />
       </a>
     </div>
   );
