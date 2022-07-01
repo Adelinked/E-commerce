@@ -4,8 +4,4 @@ module.exports = {
     domains: ["fakestoreapi.com"],
     loader: "custom",
   },
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
 };
