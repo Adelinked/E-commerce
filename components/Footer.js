@@ -12,7 +12,7 @@ export default function Footer() {
         backgroundColor: "var(--color-bgd2)",
       }}
     >
-      Designed and coded by Adelinked{" "}
+      Designed and coded by Adelinked
       <a
         style={{ fontSize: "22px", marginRight: "5px" }}
         href="https://github.com/Adelinked"
