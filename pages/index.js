@@ -47,7 +47,7 @@ const Index = (/*{ productsServ }*/) => {
         </div>
         <div className={styles.indexTextDiv}>
           <h2 className={styles.indexTitles}>Get the best of the market</h2>
-          <p style={{ color: "bleu" }}>:)</p>
+          <p style={{ color: "green" }}>:)</p>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
             accusantium sapiente tempora sed dolore esse deserunt eaque
