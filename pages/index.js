@@ -18,6 +18,8 @@ const Index = (/*{ productsServ }*/) => {
   const [email, setEmail] = useState();
   const dispatch = useDispatch();
 
+  console.log("", process.env.NODE_ENV);
+
   useEffect(() => {
     const controller = new AbortController();
     (async () => {
