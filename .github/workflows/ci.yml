@@ -1,10 +1,11 @@
 name: CI
+uses: veggiemonk/skip-commit@1.0.0
 on: [push]
 jobs:
   lhci:
     name: Lighthouse
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[LH_CI]')"
+    if: "contains(github.event.head_commit.message, '[LH_CI]')"
     steps:
       - uses: actions/checkout@v2
         with:
