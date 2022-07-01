@@ -106,6 +106,7 @@ export default () => {
             onClick={() => {
               dispatch(setAppLoading(true));
             }}
+            title="Go to Home page"
           >
             Home
           </a>
@@ -124,6 +125,7 @@ export default () => {
             onClick={() => {
               dispatch(setAppLoading(true));
             }}
+            title="Go to products page"
           >
             Products
           </a>
@@ -134,6 +136,7 @@ export default () => {
               onClick={() => {
                 dispatch(setAppLoading(true));
               }}
+              title="Go to checkout page"
             >
               Checkout
             </a>
@@ -176,6 +179,7 @@ export default () => {
             onClick={() => {
               dispatch(setAppLoading(true));
             }}
+            title="Go to home page"
           >
             Home
           </a>
@@ -185,6 +189,7 @@ export default () => {
             onClick={() => {
               dispatch(setAppLoading(true));
             }}
+            title="Go to about page"
           >
             About
           </a>
@@ -194,6 +199,7 @@ export default () => {
             onClick={() => {
               dispatch(setAppLoading(true));
             }}
+            title="Go to products page"
           >
             Products
           </a>
@@ -204,6 +210,7 @@ export default () => {
               onClick={() => {
                 dispatch(setAppLoading(true));
               }}
+              title="Go to checkout page"
             >
               Checkout
             </a>

@@ -43,7 +43,7 @@ const Index = (/*{ productsServ }*/) => {
       <Navbar />
       <div className={styles.indexDiv}>
         <div className={styles.indexImgDiv}>
-          <img src="/goods.jpg" alt="goods image" width={800} height={535} />
+          <img src="/goods.jpg" alt="goods image" style={{ width: "100%" }} />
         </div>
         <div className={styles.indexTextDiv}>
           <h2 className={styles.indexTitles}>Get the best of the market</h2>
