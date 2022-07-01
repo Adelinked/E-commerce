@@ -10,6 +10,8 @@ import { useDispatch } from "react-redux";
 import { setAppLoading } from "../store/actions/appAction";
 import { ValidateEmail } from "../utils/functions";
 import Image from "next/image";
+import GraphCMSImageLoader from "../lib/graphCMSImageLoader";
+
 const Index = (/*{ productsServ }*/) => {
   const [products, setProducts] = useState([]);
   const router = useRouter();
@@ -39,7 +41,13 @@ const Index = (/*{ productsServ }*/) => {
       <Navbar />
       <div className={styles.indexDiv}>
         <div className={styles.indexImgDiv}>
-          <Image src="/goods.jpg" alt="goods image" width={800} height={535} />
+          <Image
+            loader={GraphCMSImageLoader}
+            src="/goods.jpg"
+            alt="goods image"
+            width={800}
+            height={535}
+          />
         </div>
 
         <div className={styles.indexTextDiv}>

@@ -1,7 +1,5 @@
 module.exports = {
   images: {
-    disableStaticImages: true,
-    unoptimized: true,
+    domains: ["media.graphcms.com"],
   },
 };
-images.unoptimized = true;
