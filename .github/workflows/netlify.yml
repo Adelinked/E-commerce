@@ -8,5 +8,5 @@ jobs:
 
     steps:
       - name: trigger netlify build
-        #run: |
-#curl -X POST -d '{}' ${{secrets.NETLIFY_HOOK}}
+        run: |
+          curl -X POST -d '{}' ${{secrets.NETLIFY_HOOK}}
