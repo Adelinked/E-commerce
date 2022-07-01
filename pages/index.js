@@ -9,38 +9,39 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setAppLoading } from "../store/actions/appAction";
 import { ValidateEmail } from "../utils/functions";
-
+import Image from "next/image";
 const Index = (/*{ productsServ }*/) => {
   const [products, setProducts] = useState([]);
   const router = useRouter();
   const [email, setEmail] = useState();
   const dispatch = useDispatch();
-  useEffect(() => {
-    getProducts();
-  }, []);
 
-  const getProducts = async () => {
-    //const url = "https://fakestoreapi.com/products";
-    const url = "./api";
-    try {
-      const data = await axios.get(url);
-      setProducts(data.data);
-    } catch (e) {}
-  };
+  useEffect(() => {
+    const controller = new AbortController();
+    (async () => {
+      const url = "./api";
+      try {
+        const data = await axios.get(url, { signal: controller.signal });
+        setProducts(data.data);
+        controller = null;
+      } catch (e) {}
+    })();
+    return () => controller?.abort();
+  }, []);
 
   return (
     <>
       <Head>
         <title>E-commerce Home</title>
-        <meta name="description" content="Ecommerce app" />
+        <meta name="description" content="Ecommerce app home page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
       <div className={styles.indexDiv}>
         <div className={styles.indexImgDiv}>
-          <img style={{ width: "100%" }} src="/goods.jpg"></img>
+          <Image src="/goods.jpg" alt="goods image" width={800} height={535} />
         </div>
-        <p></p>
+
         <div className={styles.indexTextDiv}>
           <h2 className={styles.indexTitles}>Get the best of the market</h2>
           <p>
