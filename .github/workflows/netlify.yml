@@ -3,11 +3,9 @@ name: nightly-netlify-build
 on:
   push:
 jobs:
-  publish:
-    if: "contains(github.event.head_commit.message, '[NETLIFY_CI]')"
   build:
     runs-on: ubuntu-latest
-
+    if: "!contains(github.event.head_commit.message, '[netlify ci skip]')"
     steps:
       - name: trigger netlify build
         run: |
