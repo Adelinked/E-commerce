@@ -18,6 +18,7 @@ export default function Footer() {
         href="https://github.com/Adelinked"
         title="Git hub"
         target="_blank"
+        rel="noreferrer"
       >
         <i className="fa fa-github"></i>
       </a>
@@ -26,6 +27,7 @@ export default function Footer() {
         href="mailto:boulfekhar.adelaziz@gmail.com"
         title="Send an email"
         target="_blank"
+        rel="noreferrer"
       >
         <i className="fa fa-envelope"></i>
       </a>
