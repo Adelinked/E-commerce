@@ -4,7 +4,7 @@ jobs:
   lhci:
     name: Lighthouse
     runs-on: ubuntu-latest
-    if: "!contains(github.event.head_commit.message, '[lh ci skip]')"
+    if: "contains(github.event.head_commit.message, '[lh ci]')"
     steps:
       - uses: actions/checkout@v2
         with:
