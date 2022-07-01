@@ -45,7 +45,6 @@ const Index = (/*{ productsServ }*/) => {
         <div className={styles.indexImgDiv}>
           <img src="/goods.jpg" alt="goods image" width={800} height={535} />
         </div>
-        <p>lang???</p>
         <div className={styles.indexTextDiv}>
           <h2 className={styles.indexTitles}>Get the best of the market</h2>
           <p>
