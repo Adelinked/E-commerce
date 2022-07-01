@@ -1,7 +1,7 @@
 name: CI
 on: [push]
 jobs:
-    if: "contains(github.event.head_commit.message, '[LH_CI]')"
+    if: "!contains(github.event.head_commit.message, '[LH_CI]')"
   lhci:
     name: Lighthouse
     runs-on: ubuntu-latest
