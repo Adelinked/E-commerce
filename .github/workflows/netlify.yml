@@ -3,10 +3,12 @@ name: nightly-netlify-build
 on:
   push:
 jobs:
+  publish:
+    if: "contains(github.event.head_commit.message, '[NETLIFY_CI]')"
   build:
     runs-on: ubuntu-latest
 
     steps:
       - name: trigger netlify build
-      #  run: |
-      #   curl -X POST -d '{}' ${{secrets.NETLIFY_HOOK}}
+        run: |
+          curl -X POST -d '{}' ${{secrets.NETLIFY_HOOK}}
