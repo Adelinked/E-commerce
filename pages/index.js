@@ -10,17 +10,14 @@ import { useDispatch } from "react-redux";
 import { setAppLoading } from "../store/actions/appAction";
 import { ValidateEmail } from "../utils/functions";
 import Image from "next/image";
-import GraphCMSImageLoader from "../lib/graphCMSImageLoader";
 
-const Index = (/*{ productsServ }*/) => {
-  const [products, setProducts] = useState([]);
+const Index = ({ products }) => {
+  //const [products, setProducts] = useState([]);
   const router = useRouter();
   const [email, setEmail] = useState();
   const dispatch = useDispatch();
 
-  console.log("", process.env.NODE_ENV);
-
-  useEffect(() => {
+  /*useEffect(() => {
     const controller = new AbortController();
     (async () => {
       const url = "./api";
@@ -31,7 +28,7 @@ const Index = (/*{ productsServ }*/) => {
       } catch (e) {}
     })();
     return () => controller?.abort();
-  }, []);
+  }, []);*/
 
   return (
     <>
@@ -43,11 +40,16 @@ const Index = (/*{ productsServ }*/) => {
       <Navbar />
       <div className={styles.indexDiv}>
         <div className={styles.indexImgDiv}>
-          <img src="/goods.jpg" alt="goods image" style={{ width: "100%" }} />
+          <Image
+            src="/goods.jpg"
+            alt="goods image"
+            width={800}
+            height={535}
+            priority
+          />
         </div>
         <div className={styles.indexTextDiv}>
           <h2 className={styles.indexTitles}>Get the best of the market</h2>
-          <p style={{ color: "green" }}>:)</p>
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat
             accusantium sapiente tempora sed dolore esse deserunt eaque
@@ -129,10 +131,9 @@ const Index = (/*{ productsServ }*/) => {
 };
 
 export default Index;
-/*
-export async function getServerSideProps(context) {
+
+export async function getStaticProps(context) {
   const url = "https://fakestoreapi.com/products?limit=5";
   const data = await axios.get(url);
-  return { props: { productsServ: data.data } };
+  return { props: { products: data.data } };
 }
-*/

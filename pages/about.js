@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
-
+import Image from "next/image";
 const About = () => {
   return (
     <>
@@ -15,7 +15,7 @@ const About = () => {
       <Navbar />
       <div className="aboutDiv">
         <div className="aboutImgDiv">
-          <img style={{ width: "100%" }} src="/about.jpg"></img>
+          <Image alt="about image" src="/about.jpg" width={500} height={335} />
         </div>
 
         <div className="aboutTextDiv">

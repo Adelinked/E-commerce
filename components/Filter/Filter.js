@@ -80,23 +80,25 @@ export default () => {
         {companies && companies.length > 0 && (
           <>
             {" "}
-            <label>Company</label>
-            <select
-              onChange={handleChange}
-              name="company"
-              id="company"
-              value={filter.company}
-            >
-              <option value="">All</option>
-              {companies.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
+            <label htmlFor="company">
+              Company
+              <select
+                onChange={handleChange}
+                name="company"
+                id="company"
+                value={filter.company}
+              >
+                <option value="">All</option>
+                {companies.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </label>
           </>
         )}
-        <label>Price :</label>$ {filter.price}
+        <label htmlFor="price">Price :$ {filter.price}</label>
         <input
           type="range"
           name="price"
@@ -106,7 +108,8 @@ export default () => {
           max={maxPrice}
           value={filter.price}
         />
-        <label>
+
+        <label htmlFor="freeShipping">
           Free Shipping{" "}
           <input
             type="checkbox"

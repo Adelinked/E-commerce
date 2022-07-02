@@ -6,14 +6,6 @@
   width: 100%;
 }
 
-.productsDetailed {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 5px;
-  padding: 10px;
-  width: 100%;
-}
-
 .productPad {
   padding: 5px;
   text-align: center;
@@ -21,29 +13,31 @@
   position: relative;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow: auto;
   background-color: var(--color-bgd2);
+  width: 100%;
+  height: 400px;
 }
 .image {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
+  height: 70%;
+  position: relative;
 }
 
 .withDescription {
   display: flex;
+  height: 100%;
 }
 
 .imageHalf {
   width: 25%;
-  height: 300px;
-  object-fit: cover;
-  display: block;
+  height: 100%;
+  position: relative;
 }
 
 .description {
   width: 75%;
+  overflow-y: auto;
 }
 
 .productTitleDiv {
@@ -73,7 +67,7 @@
 }
 .productButton {
   position: absolute;
-  top: 35%;
+  top: 45%;
   left: 45%;
   display: none;
   font-size: 4rem;
@@ -85,8 +79,8 @@
 
 .productButtonDet {
   position: absolute;
-  top: 35%;
-  left: 10%;
+  top: 45%;
+  left: 45%;
   display: none;
   font-size: 4rem;
   cursor: pointer;
@@ -174,19 +168,27 @@
   .productsContainer {
     grid-template-columns: repeat(3, 1fr);
   }
+  .withDescription {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageHalf {
+    width: 80%;
+    margin: 0 auto;
+    min-height: 50%;
+  }
+
+  .description {
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 @media (max-width: 768px) {
   .productsContainer {
     grid-template-columns: repeat(2, 1fr);
   }
-  .withDescription {
-    flex-direction: column;
-    align-items: center;
-  }
-  .imageHalf {
-    width: 80%;
-    margin: 0 auto;
-  }
+
   .productsPageDiv {
     flex-direction: column;
   }
@@ -195,6 +197,9 @@
   }
   .rightDiv {
     width: 100%;
+  }
+  .productPad {
+    height: 300px;
   }
 }
 @media (max-width: 576px) {

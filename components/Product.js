@@ -5,9 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCurrProduct } from "../store/actions/productsAction";
 import { useLocalStorageValue } from "@mantine/hooks";
 import { setAppLoading } from "../store/actions/appAction";
-
+import Image from "next/image";
 export default function Product(props) {
-  const { title, description, image, price, id, fromIndex = false } = props;
+  const {
+    title,
+    description,
+    image,
+    price,
+    id,
+    num,
+    fromIndex = false,
+  } = props;
   const [currProdLocal, setCurrProdLocal] = useLocalStorageValue({
     key: "currProd",
   });
@@ -19,18 +27,34 @@ export default function Product(props) {
     <div className={styles.productPad}>
       {display === "0" || fromIndex ? (
         <>
-          <img className={styles.image} src={image} alt={title}></img>
+          <div className={styles.image}>
+            <Image
+              src={image}
+              alt={title}
+              layout="fill"
+              objectFit="cover"
+              priority={num === 0}
+            />
+          </div>
           <div className={styles.productTitleDiv}>
-            <h4 style={{ textAlign: "left" }}>{title}</h4>
+            <p style={{ textAlign: "left" }}>{title}</p>
             <p style={{ textAlign: "right" }}> ${price} </p>
           </div>
         </>
       ) : (
         <div className={styles.withDescription}>
-          <img className={styles.imageHalf} src={image} alt={title} />
+          <div className={styles.imageHalf}>
+            <Image
+              src={image}
+              alt={title}
+              layout="fill"
+              objectFit="cover"
+              priority={num === 0}
+            />
+          </div>
           <div className={styles.description}>
             <div className={styles.productTitleDiv}>
-              <h3 style={{ textAlign: "left" }}>{title}</h3>
+              <p style={{ textAlign: "left" }}>{title}</p>
               <p style={{ textAlign: "right" }}> ${price} </p>
             </div>
             <p className={styles.descriptionText}>{description}</p>
@@ -45,6 +69,7 @@ export default function Product(props) {
             dispatch(setAppLoading(true));
             setCurrProdLocal({ currProd: products[id - 1] });
           }}
+          title={`product${id}`}
         >
           <span
             className={

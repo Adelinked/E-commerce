@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 import { Button, CircularProgress } from "@mui/material";
 import { deepOrange } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
-
+import Image from "next/image";
 import { toast } from "react-toastify";
 
 export default function ({ csrfToken }) {
@@ -201,22 +201,19 @@ export default function ({ csrfToken }) {
           </>
         )}
       </div>
-      <p style={{ marginBottom: "10px" }}>Secured by</p>
+      <p style={{ marginBottom: "10px" }}>Secured using</p>
       <a
         href="https://next-auth.js.org/"
-        title="nextAuth web page"
         target="_blank"
+        title="nextAuth web page"
         rel="noreferrer"
       >
-        <img
-          className={styles.nextAuthLogo}
-          src="/auth.png"
-          alt="nextAuthLogo"
-        />
+        <Image alt="nextAuthLogo" width={180} height={55} src="/auth.png" />
       </a>
     </div>
   );
 }
+//<img className={styles.nextAuthLogo} src="/auth.png" />
 /*
 export async function getServerSideProps(context) {
   const providers = await getProviders();

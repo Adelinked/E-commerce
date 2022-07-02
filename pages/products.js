@@ -22,26 +22,19 @@ const Products = (
   const { products, filter, display } = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    getProducts();
+    let controller = new AbortController();
+
+    (async () => {
+      setLoading(true);
+      const url = "./api";
+      const data = await axios.get(url, { signal: controller.signal });
+      dispatch(setProducts(data.data.slice(0, 4)));
+      setLoading(false);
+    })();
+
+    return () => controller?.abort();
   }, []);
 
-  const getProducts = async () => {
-    setLoading(true);
-    //const url = "https://fakestoreapi.com/products";
-    const url = "./api";
-    const data = await axios.get(url);
-    dispatch(
-      /*setProducts(
-        data.data.map((i, index) => {
-          if (index % 2 === 0) {
-            return { ...i, freeShipping: true };
-          } else return { ...i, freeShipping: false };
-        })
-      )*/
-      setProducts(data.data)
-    );
-    setLoading(false);
-  };
   let filtredProducts = [...products];
   const { title, category, price, freeShipping } = filter;
   if (title) {
@@ -98,8 +91,8 @@ const Products = (
                     : styles.productsDetailed
                 }
               >
-                {filtredProducts.map((p) => (
-                  <Product key={p.id} {...p} />
+                {filtredProducts.map((p, index) => (
+                  <Product key={p.id} {...p} num={index} />
                 ))}
               </div>
             </>

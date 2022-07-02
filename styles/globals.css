@@ -87,6 +87,7 @@ body {
   min-width: 300px;
   background-color: var(--color-bgd);
   height: 100%;
+  font-display: swap;
 }
 
 h1,
