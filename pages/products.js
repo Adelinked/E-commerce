@@ -28,7 +28,7 @@ const Products = (
       setLoading(true);
       const url = "./api";
       const data = await axios.get(url, { signal: controller.signal });
-      dispatch(setProducts(data.data.slice(0, 4)));
+      dispatch(setProducts(data.data));
       setLoading(false);
     })();
 
