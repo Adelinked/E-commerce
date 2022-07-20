@@ -26,3 +26,7 @@ Here is a list of the technologies used in this project.
 - [Fake store API](https://fakestoreapi.com) - Fake store rest API for your e-commerce or shopping website prototype.
 
 You can see the the result of the application deployed here: https://e-commerce-adelinked.netlify.app
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
