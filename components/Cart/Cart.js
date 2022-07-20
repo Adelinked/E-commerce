@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 
 import { setCart, showCartNav } from "../../store/actions/cartAction";
 
+import { FaTimes, FaRegCreditCard } from "react-icons/fa";
 export default function () {
   const url = "./api/";
 
@@ -43,7 +44,7 @@ export default function () {
           dispatch(showCartNav(false));
         }}
       >
-        <i className="fa fa-close"></i>
+        <FaTimes />
       </span>
       {cart.cart.map((i) => (
         <Item
@@ -72,7 +73,7 @@ export default function () {
               }}
               className="button"
             >
-              Checkout <i className="fa fa-credit-card"></i>
+              Checkout <FaRegCreditCard />
             </button>
           </div>
         )}

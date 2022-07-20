@@ -1,12 +1,10 @@
 import Head from "next/head";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/NavBar";
-import styles from "../../styles/Products.module.css";
 import { ProductDetails } from "../../components/ProductDetails";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useLocalStorageValue } from "@mantine/hooks";
 import axios from "axios";
 

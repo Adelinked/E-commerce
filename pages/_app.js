@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { Provider } from "react-redux";
 import { useStore } from "../store/store";
 import { AppWrapper } from "../context";
+//import "font-awesome/css/font-awesome.min.css";
 
 export default function App({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);

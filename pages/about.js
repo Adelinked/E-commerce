@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
-import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import Image from "next/image";

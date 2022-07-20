@@ -1,5 +1,4 @@
-import "font-awesome/css/font-awesome.min.css";
-
+import { FaEnvelope, FaGithubSquare } from "react-icons/fa";
 export default function Footer() {
   return (
     <p
@@ -7,20 +6,26 @@ export default function Footer() {
         fontWeight: "600",
         textAlign: "center",
         marginTop: "15px",
+        paddingTop: "5px",
         minWidth: "350px",
         borderTop: "2px var(--color-sub) solid",
         backgroundColor: "var(--color-bgd2)",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
       Designed and coded by Adelinked{" "}
       <a
-        style={{ fontSize: "22px", marginRight: "5px" }}
+        style={{
+          fontSize: "22px",
+          margin: "0 5px",
+        }}
         href="https://github.com/Adelinked"
         title="Git hub"
         target="_blank"
         rel="noreferrer"
       >
-        <i className="fa fa-github"></i>
+        <FaGithubSquare />
       </a>
       <a
         style={{ fontSize: "22px", marginRight: "5px" }}
@@ -29,7 +34,7 @@ export default function Footer() {
         target="_blank"
         rel="noreferrer"
       >
-        <i className="fa fa-envelope"></i>
+        <FaEnvelope />
       </a>
     </p>
   );

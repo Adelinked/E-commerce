@@ -3,14 +3,18 @@ import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
-import Product from "../components/Product";
+//import Product from "../components/Product";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAppLoading } from "../store/actions/appAction";
 import { ValidateEmail } from "../utils/functions";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
+const Product = dynamic(() => import("../components/Product"), {
+  ssr: false,
+});
 const Index = ({ products }) => {
   //const [products, setProducts] = useState([]);
   const router = useRouter();

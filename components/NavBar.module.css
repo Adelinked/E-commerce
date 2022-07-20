@@ -30,9 +30,8 @@
 }
 
 .themeSwitch {
-  margin-bottom: 10px;
-  padding: 1%;
   width: 30%;
+  height: 100%;
   color: var(--color-switch);
   font-size: 3.5rem;
   cursor: pointer;
@@ -40,6 +39,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.themeSwitchVert {
+  width: 30%;
+  margin-bottom: 10px;
+  color: var(--color-switch);
+  font-size: 3.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .openNav,
 .closeNav {
   color: var(--color-sub);
@@ -100,8 +111,22 @@
 }
 
 .loginContainer {
+  height: 100%;
   font-size: 2.5rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5px;
+}
+
+.loginContainerVert {
+  font-size: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5px;
 }
 
 .appLoading {
@@ -125,7 +150,9 @@
     font-size: 3.5rem;
   }
   .openNav {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .cartLogOpen {
     margin: 0 0 0 52%;

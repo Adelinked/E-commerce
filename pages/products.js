@@ -1,27 +1,29 @@
 import Head from "next/head";
-import Link from "next/link";
-
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import styles from "../styles/Products.module.css";
 import axios from "axios";
-import Product from "../components/Product";
 import Sort from "../components/Sort";
 import DisplayProducts from "../components/DisplayProducts";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../store/actions/productsAction";
 import { useEffect, useState } from "react";
 import Filter from "../components/Filter/Filter";
+import dynamic from "next/dynamic";
+//import Product from "../components/Product";
 
-const Products = (
-  {
-    /*productsServ*/
-  }
-) => {
+const Product = dynamic(() => import("../components/Product"), {
+  ssr: false,
+});
+
+const Products = ({ productsServ }) => {
+  //dispatch(setProducts(productsServ));
   const dispatch = useDispatch();
   const { products, filter, display } = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
-  useEffect(() => {
+
+  //dispatch(setProducts(productsServ));
+  /*useEffect(() => {
     let controller = new AbortController();
 
     (async () => {
@@ -33,6 +35,9 @@ const Products = (
     })();
 
     return () => controller?.abort();
+  }, []);*/
+  useEffect(() => {
+    dispatch(setProducts(productsServ));
   }, []);
 
   let filtredProducts = [...products];
@@ -110,10 +115,9 @@ const Products = (
 
 export default Products;
 
-/*
 export async function getServerSideProps(context) {
   const url = "https://fakestoreapi.com/products";
   const data = await axios.get(url);
+
   return { props: { productsServ: data.data } };
 }
-*/

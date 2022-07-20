@@ -1,10 +1,9 @@
-import "font-awesome/css/font-awesome.min.css";
 import { useState } from "react";
 import styles from "./user.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { showUserLogin } from "../../store/actions/userAction";
-import { useSession, signIn, signOut } from "next-auth/react";
-
+import { useSession } from "next-auth/react";
+import { FaUserPlus, FaUserAlt } from "react-icons/fa";
 export const UserNav = (props) => {
   const { data: session } = useSession();
   let userName, userImg;
@@ -34,13 +33,18 @@ export const UserNav = (props) => {
         <>
           <span className={styles.usr}>{userName}</span>
           <span className={styles.logouTxt}>Logout</span>
-          <img className={styles.avatar} src={userImg}></img>
+          <img
+            className={styles.avatar}
+            src={userImg ?? "/anonymous.png"}
+          ></img>
         </>
       )}
       {!session ? (
-        <i className="fa fa-user-plus"></i>
+        <FaUserPlus />
       ) : (
-        <i className="fa fa-user" title={`Connected as ${userName}`}></i>
+        <i className="fa fa-user" title={`Connected as ${userName}`}>
+          <FaUserAlt />
+        </i>
       )}
     </span>
   );

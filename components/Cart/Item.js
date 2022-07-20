@@ -1,5 +1,6 @@
-import "font-awesome/css/font-awesome.min.css";
 import styles from "./cartStyle.module.css";
+import Image from "next/image";
+import { FaArrowCircleUp, FaArrowCircleDown } from "react-icons/fa";
 export const Item = ({
   item,
   handleRemove,
@@ -11,10 +12,15 @@ export const Item = ({
     <div className={styles.itemsContainer}>
       <div className={styles.items}>
         <div className={styles.item}>
-          <img
-            style={{ width: "80px", justifyContent: "center" }}
-            src={item.img}
-          ></img>
+          <div className={styles.imgDiv}>
+            {" "}
+            <Image
+              src={item.img}
+              alt={item.title}
+              width="100px"
+              height="133px"
+            />
+          </div>
           <div className={styles.itemText}>
             <p>{item.title} </p>
             <p>{item.price}$</p>
@@ -25,19 +31,17 @@ export const Item = ({
               Remove
             </span>
           </div>
-        </div>
-        <div className={styles.amount}>
-          <i
-            className="fa fa-arrow-up"
-            onClick={() => handleInc(item.id)}
-            style={{ cursor: "pointer" }}
-          ></i>
-          {item.amount}
-          <i
-            className="fa fa-arrow-down"
-            onClick={() => handleDec(item.id)}
-            style={{ cursor: "pointer" }}
-          ></i>
+          <div className={styles.amount}>
+            <FaArrowCircleUp
+              style={{ cursor: "pointer" }}
+              onClick={() => handleInc(item.id)}
+            />
+            {item.amount}
+            <FaArrowCircleDown
+              style={{ cursor: "pointer" }}
+              onClick={() => handleDec(item.id)}
+            />
+          </div>
         </div>
       </div>
     </div>

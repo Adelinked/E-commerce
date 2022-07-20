@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import Footer from "../components/Footer";
 import Navbar from "../components/NavBar";
 import { useSession } from "next-auth/react";

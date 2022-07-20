@@ -1,11 +1,11 @@
 import styles from "../styles/Products.module.css";
-import "font-awesome/css/font-awesome.min.css";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrProduct } from "../store/actions/productsAction";
 import { useLocalStorageValue } from "@mantine/hooks";
 import { setAppLoading } from "../store/actions/appAction";
 import Image from "next/image";
+import { FaEye } from "react-icons/fa";
 export default function Product(props) {
   const {
     title,
@@ -37,7 +37,15 @@ export default function Product(props) {
             />
           </div>
           <div className={styles.productTitleDiv}>
-            <p style={{ textAlign: "left" }}>{title}</p>
+            <p
+              style={{
+                textAlign: "left",
+                marginRight: "5px",
+                fontSize: "1.4rem",
+              }}
+            >
+              {title}
+            </p>
             <p style={{ textAlign: "right" }}> ${price} </p>
           </div>
         </>
@@ -78,7 +86,7 @@ export default function Product(props) {
                 : styles.productButtonDet
             }
           >
-            <i className="fa fa-eye"></i>
+            <FaEye />
           </span>
         </a>
       </Link>

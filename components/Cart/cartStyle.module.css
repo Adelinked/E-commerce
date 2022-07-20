@@ -24,8 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 0 1rem;
+  height: 12vh;
 }
 .closeNav {
   color: var(--color-sub);
@@ -45,24 +44,28 @@
   transform: rotate(90deg);
 }
 
+.cartIcon {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 5px;
+  padding-top: 5px;
+}
+
 .count {
   position: absolute;
-  top: -5px;
-  left: 15px;
+  top: 10px;
+  left: 20px;
   font-size: 2rem;
   border-radius: 50%;
   background-color: var(--color-bgd3-trsp);
   border: 0.5px solid blue;
   width: 25px;
   text-align: center;
-}
-.cartIcon {
-  position: relative;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-  margin-right: 2.5rem;
-  user-select: none;
 }
 
 .clearButton {
@@ -83,25 +86,32 @@
 .item {
   display: flex;
   margin: 5px 0;
+  width: 100%;
+}
+.imgDiv {
+  width: 30%;
 }
 .itemText {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding-left: 10px;
+  width: 60%;
 }
 .items {
   display: flex;
   margin: 5px 0;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 .amount {
   margin-left: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 10%;
+  padding: 5px;
 }
 
 .total {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "font-awesome/css/font-awesome.min.css";
 import Link from "next/link";
 import styles from "./NavBar.module.css";
 import { useLocalStorageValue } from "@mantine/hooks";
@@ -14,6 +13,7 @@ import { useSession } from "next-auth/react";
 import AppLoading from "../components/AppLoading";
 import { setAppLoading } from "../store/actions/appAction";
 import { useRouter } from "next/router";
+import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 
 export default () => {
   const { data: session } = useSession();
@@ -32,13 +32,14 @@ export default () => {
   const { globalState, setGlobalState } = useAppContext();
 
   useEffect(() => {
-    setGlobalState((themeLocal && themeLocal.theme) ?? "dark-theme");
+    setGlobalState(themeLocal?.theme ?? "dark-theme");
+    //setGlobalState(themeLocal?.theme);
     dispatch(setAllCart((cartLocal && cartLocal.cart) ?? []));
   }, []);
 
   useEffect(() => {
-    document.documentElement.className = theme;
-    setThemeLocal({ theme: theme });
+    document.documentElement.className = globalState;
+    setThemeLocal({ theme: globalState });
     setCartLocal({ cart: cart.cart });
   }, [globalState]);
 
@@ -95,11 +96,7 @@ export default () => {
           title={`Switch to ${titleTheme}`}
           onClick={switchTheme}
         >
-          {theme === "light-theme" ? (
-            <i className="fa fa-moon-o"></i>
-          ) : (
-            <i className="fa fa-sun-o"></i>
-          )}
+          {theme === "light-theme" ? <FaMoon /> : <FaSun />}
         </span>
         <Link href="/">
           <a
@@ -147,30 +144,24 @@ export default () => {
           <div className={styles.loginContainer}>
             <UserNav />
           </div>
-
           <span className={styles.openNav} onClick={openVertNav}>
-            <i className="fa fa-bars"></i>
+            <FaBars />
           </span>
         </div>
-
         <Cart />
       </nav>
       <nav className={styles.vertNavbar} id="vertNavbar">
         <span className={styles.closeNav} onClick={openVertNav}>
-          <i className="fa fa-close"></i>
+          <FaTimes />
         </span>
         <span
-          className={styles.themeSwitch}
+          className={styles.themeSwitchVert}
           title={`Switch to ${titleTheme}`}
           onClick={switchTheme}
         >
-          {theme === "light-theme" ? (
-            <i className="fa fa-moon-o"></i>
-          ) : (
-            <i className="fa fa-sun-o"></i>
-          )}
+          {theme === "light-theme" ? <FaMoon /> : <FaSun />}
         </span>
-        <div className={styles.loginContainer}>
+        <div className={styles.loginContainerVert}>
           <UserNav />
         </div>
         <Link href="/">

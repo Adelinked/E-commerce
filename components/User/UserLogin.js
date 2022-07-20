@@ -16,6 +16,7 @@ import { deepOrange } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
 import { toast } from "react-toastify";
+import { FaTimes } from "react-icons/fa";
 
 export default function ({ csrfToken }) {
   const [providers, setProviders] = useState({});
@@ -110,7 +111,7 @@ export default function ({ csrfToken }) {
           dispatch(showUserLogin(false));
         }}
       >
-        <i className="fa fa-close"></i>
+        <FaTimes />
       </span>
       <div className={styles.signinContainer}>
         {session ? (

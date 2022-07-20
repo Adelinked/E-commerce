@@ -1,4 +1,3 @@
-import "font-awesome/css/font-awesome.min.css";
 import styles from "./cartStyle.module.css";
 
 export const Total = (props) => {
