@@ -6,6 +6,8 @@ Here are some screenshots of the application:
 ![App Screenshot](https://i.postimg.cc/7YVxtsXp/products.png)
 ![App Screenshot](https://i.postimg.cc/CxzWCm2C/cart.png)
 ![App Screenshot](https://i.postimg.cc/brRjMr0Q/Screenshot-1.png)
+![App Screenshot](https://i.postimg.cc/t4PW34ws/Screenshot-5.png)
+![App Screenshot](https://i.postimg.cc/fTNHt1Jj/Screenshot-2.png)
 
 ## Built With
 
