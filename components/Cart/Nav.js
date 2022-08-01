@@ -1,7 +1,6 @@
-import { useState } from "react";
 import styles from "./cartStyle.module.css";
 import { useDispatch, useSelector, connect } from "react-redux";
-import { setCart, showCartNav } from "../../store/actions/cartAction";
+import { showCartNav } from "../../store/actions/cartAction";
 import { FaShoppingCart } from "react-icons/fa";
 
 export const Nav = (props) => {

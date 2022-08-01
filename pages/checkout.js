@@ -58,8 +58,6 @@ const Checkout = () => {
       const stripe = await getStripe();
       await stripe.redirectToCheckout({ sessionId: id });
     } catch (error) {
-      //console.log(error.response.data);
-      console.log(error.message);
       alert(error.message);
     }
   };
@@ -71,6 +69,7 @@ const Checkout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navbar />
+
       <div className={styles.checkoutDiv}>
         <div className={styles.loading}>{loading && <CircularProgress />}</div>
         {session && (
@@ -80,9 +79,10 @@ const Checkout = () => {
               <>
                 {!success && (
                   <>
-                    <p className={styles.welcome}>
-                      Your total is: {total}$ <Nav items={cart} />{" "}
-                    </p>{" "}
+                    <p className={styles.welcome}>Your total is: {total}$ </p>{" "}
+                    <div className={styles.cartCountDiv}>
+                      <Nav items={cart} />
+                    </div>
                     <button
                       style={{ marginTop: "10px" }}
                       onClick={redirectToCheckout}

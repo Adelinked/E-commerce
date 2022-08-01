@@ -23,6 +23,13 @@
   align-items: center;
   color: green;
 }
+
+.cartCountDiv {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+
 @media (max-width: 768px) {
   .welcome,
   .success {
