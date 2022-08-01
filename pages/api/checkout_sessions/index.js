@@ -6,6 +6,9 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
+      if (!session) {
+        throw Error("Authentication error");
+      }
       const stripeSession = await stripe.checkout.sessions.create({
         mode: "payment",
         payment_method_types: ["card"],
