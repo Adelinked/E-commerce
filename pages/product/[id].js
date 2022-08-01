@@ -21,7 +21,8 @@ export default function OneProduct({ productServ }) {
   });
   const product = products[current - 1] ?? currProdLocal.currProd;
 
-  useEffect(() => {
+  console.log(productServ);
+  /*useEffect(() => {
     getProduct();
   }, [query]);
 
@@ -31,7 +32,7 @@ export default function OneProduct({ productServ }) {
     const data = await axios.get(url);
     setProductCli(data.data[0]);
     setLoading(false);
-  };
+  };*/
 
   return (
     <>
@@ -43,7 +44,7 @@ export default function OneProduct({ productServ }) {
       <Navbar />
       {!loading && (
         <div>
-          <ProductDetails {...productCli} />
+          <ProductDetails {...productServ} />
         </div>
       )}
       {loading && <div>...loading</div>}
@@ -55,7 +56,9 @@ export default function OneProduct({ productServ }) {
 
 export async function getStaticProps({ params }) {
   const id = params.id;
-  return { props: { productServ: await getProductServ(id) } };
+  const data = await getProductServ(id);
+
+  return { props: { productServ: data[0] } };
 }
 export async function getStaticPaths() {
   const data = await getProductsServ();

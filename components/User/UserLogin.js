@@ -31,6 +31,7 @@ export default function ({ csrfToken }) {
 
   const dispatch = useDispatch();
   const { showLogin } = useSelector((state) => state.user);
+
   useEffect(() => {
     if (showLogin) {
       document.getElementById("userLogin").style.right = "0";
@@ -40,6 +41,7 @@ export default function ({ csrfToken }) {
       document.getElementById("userLogin").style.height = "0";
     }
   }, [showLogin]);
+
   const { query } = useRouter();
   const [status, setStatus] = useState();
 
