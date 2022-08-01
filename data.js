@@ -1,4 +1,6 @@
-export let data = [
+import { dupArr } from "./lib/dupArr";
+
+const initData = [
   {
     id: 15,
     title: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats",
@@ -340,3 +342,5 @@ export let data = [
     company: "A Electronics",
   },
 ];
+
+export let data = dupArr(initData, 2);
