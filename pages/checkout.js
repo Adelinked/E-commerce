@@ -58,7 +58,7 @@ const Checkout = () => {
       const stripe = await getStripe();
       await stripe.redirectToCheckout({ sessionId: id });
     } catch (error) {
-      alert(error.message);
+      alert(error.response?.data?.message ?? error.message);
     }
   };
   return (
@@ -72,7 +72,7 @@ const Checkout = () => {
 
       <div className={styles.checkoutDiv}>
         <div className={styles.loading}>{loading && <CircularProgress />}</div>
-        {session && (
+        {(session || !session) && (
           <div className={styles.welcome}>
             <p className={styles.welcome}>Hello, {userName}</p>
             {total > 0 ? (
