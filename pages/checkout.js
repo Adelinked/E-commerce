@@ -114,7 +114,7 @@ const Checkout = () => {
                 )}
                 {!success && (
                   <>
-                    <p style={{ marginTop: "20px" }}> You cart is empty</p>
+                    <p style={{ margin: "20px 0" }}> You cart is empty</p>
                     <button
                       onClick={() => {
                         router.push("/products");
