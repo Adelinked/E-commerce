@@ -11,13 +11,13 @@ import { useEffect, useState } from "react";
 import Filter from "../components/Filter/Filter";
 import dynamic from "next/dynamic";
 //import Product from "../components/Product";
+import { getProductsServ } from "../lib/getProductsServ";
 
 const Product = dynamic(() => import("../components/Product"), {
   ssr: false,
 });
 
 const Products = ({ productsServ }) => {
-  //dispatch(setProducts(productsServ));
   const dispatch = useDispatch();
   const { products, filter, display } = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
@@ -41,7 +41,7 @@ const Products = ({ productsServ }) => {
   }, []);
 
   let filtredProducts = [...products];
-  const { title, category, price, freeShipping } = filter;
+  const { title, category, price, freeShipping, company } = filter;
   if (title) {
     filtredProducts = filtredProducts.filter((i) =>
       i.title.toLowerCase().includes(title.toLowerCase())
@@ -56,6 +56,10 @@ const Products = ({ productsServ }) => {
 
   if (freeShipping) {
     filtredProducts = filtredProducts.filter((i) => i.freeShipping === true);
+  }
+
+  if (company) {
+    filtredProducts = filtredProducts.filter((i) => i.company === company);
   }
 
   return (
@@ -115,9 +119,6 @@ const Products = ({ productsServ }) => {
 
 export default Products;
 
-export async function getServerSideProps(context) {
-  const url = "https://fakestoreapi.com/products";
-  const data = await axios.get(url);
-
-  return { props: { productsServ: data.data } };
+export async function getStaticProps(context) {
+  return { props: { productsServ: await getProductsServ() } };
 }

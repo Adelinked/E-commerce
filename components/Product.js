@@ -70,7 +70,7 @@ export default function Product(props) {
         </div>
       )}
 
-      <Link href={`/product/One?id=${id}`}>
+      <Link href={`/product/${id}`}>
         <a
           onClick={() => {
             dispatch(setCurrProduct(id));

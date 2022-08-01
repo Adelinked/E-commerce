@@ -72,7 +72,7 @@ const Checkout = () => {
 
       <div className={styles.checkoutDiv}>
         <div className={styles.loading}>{loading && <CircularProgress />}</div>
-        {(session || !session) && (
+        {session && (
           <div className={styles.welcome}>
             <p className={styles.welcome}>Hello, {userName}</p>
             {total > 0 ? (

@@ -2,9 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilter, clearFilter } from "../../store/actions/productsAction";
 import styles from "./Filter.module.css";
 export default () => {
-  const { filter, filtredProducts, products } = useSelector(
-    (state) => state.products
-  );
+  const { filter, products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const handleChange = (e) => {
     const target = e.target;
@@ -34,13 +32,9 @@ export default () => {
   }, []);
 
   const minPrice =
-    products && products.length > 0
-      ? Math.min(...products.map((p) => p.price))
-      : 0;
+    products?.length > 0 ? Math.min(...products.map((p) => p.price)) : 0;
   const maxPrice =
-    products && products.length > 0
-      ? Math.max(...products.map((p) => p.price))
-      : 1000;
+    products?.length > 0 ? Math.max(...products.map((p) => p.price)) : 1000;
   return (
     <div className={styles.filterContainer}>
       <form
@@ -61,7 +55,7 @@ export default () => {
         />
         {categories && categories.length > 0 && (
           <>
-            <label>Category</label>
+            <label htmlFor="category">Category</label>
             <select
               onChange={handleChange}
               name="category"
