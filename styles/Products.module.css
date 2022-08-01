@@ -89,34 +89,51 @@
   height: 40px;
 }
 
-/*
-.productPad:hover .productTitle {
-  transform: translateY(0%);
-}*/
-.productPad:hover,
+.productPad:hover {
+  color: var(--color-font);
+}
+.productPad:hover .productButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.productPad:hover .productButtonDet {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.productPad:hover .image {
+  opacity: 50%;
+}
+
+.productPad:hover .imageHalf {
+  opacity: 50%;
+}
+
+/* do the same for when focus within product pad*/
+
 .productPad:focus-within {
   color: var(--color-font);
 }
-.productPad:hover,
+
 .productPad:focus-within .productButton {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.productPad:hover,
 .productPad:focus-within .productButtonDet {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
 
-.productPad:hover,
 .productPad:focus-within .image {
   opacity: 50%;
 }
 
-.productPad:hover,
 .productPad:focus-within .imageHalf {
   opacity: 50%;
 }
