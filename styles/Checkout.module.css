@@ -27,7 +27,7 @@
 .cartCountDiv {
   display: flex;
   justify-content: center;
-  height: 70px;
+  height: 45px;
 }
 
 @media (max-width: 768px) {

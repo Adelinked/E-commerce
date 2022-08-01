@@ -42,7 +42,7 @@
 
 .themeSwitchVert {
   width: 30%;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: var(--color-switch);
   font-size: 3.5rem;
   cursor: pointer;
