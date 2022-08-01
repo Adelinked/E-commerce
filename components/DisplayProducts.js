@@ -6,7 +6,7 @@ export default () => {
   const dispatch = useDispatch();
   const { display } = useSelector((state) => state.products);
   return (
-    <div>
+    <div style={{ marginTop: "5px" }}>
       <span
         className={styles.displayBut}
         style={{

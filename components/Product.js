@@ -24,7 +24,11 @@ export default function Product(props) {
   const { loading } = useSelector((state) => state.app);
 
   return (
-    <div className={styles.productPad}>
+    <div
+      className={`${styles.productPad} ${
+        display === "1" && styles.productPadHeightDet
+      }`}
+    >
       {display === "0" || fromIndex ? (
         <>
           <div className={styles.image}>

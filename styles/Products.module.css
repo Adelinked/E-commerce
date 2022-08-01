@@ -1,6 +1,6 @@
 .productsContainer {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
   padding: 10px;
   width: 100%;
@@ -16,8 +16,13 @@
   overflow: auto;
   background-color: var(--color-bgd2);
   width: 100%;
+  height: 280px;
+}
+
+.productPadHeightDet {
   height: 300px;
 }
+
 .image {
   width: 100%;
   height: 70%;
@@ -152,7 +157,7 @@
 .sortDiv {
   width: 100%;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   color: var(--color-font-light);
@@ -192,7 +197,7 @@
 
 @media (max-width: 992px) {
   .productsContainer {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .withDescription {
     flex-direction: column;
@@ -212,7 +217,7 @@
 }
 @media (max-width: 768px) {
   .productsContainer {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .productsPageDiv {
@@ -225,16 +230,20 @@
     width: 100%;
   }
   .productPad {
-    height: 300px;
+    height: 250px;
+  }
+  .image {
+    height: 75%;
+  }
+  .productPadHeightDet {
+    height: 350px;
   }
 }
 @media (max-width: 576px) {
-  .productsContainer {
-    grid-template-columns: repeat(1, 1fr);
-  }
   .sortDiv {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0;
   }
 }
