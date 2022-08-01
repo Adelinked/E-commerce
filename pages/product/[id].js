@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { useLocalStorageValue } from "@mantine/hooks";
 import axios from "axios";
 import { getProductsServ, getProductServ } from "../../lib/getProductsServ";
+import { NUM_STATIC_PRODUCT_PAGES } from "../../variables";
 
 export default function OneProduct({ productServ }) {
   const { query } = useRouter();
@@ -59,6 +60,8 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const data = await getProductsServ();
 
-  let paths = data.map((p) => `/product/${p.id}`);
+  let paths = data
+    .slice(0, NUM_STATIC_PRODUCT_PAGES)
+    .map((p) => `/product/${p.id}`);
   return { paths, fallback: false };
 }

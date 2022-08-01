@@ -42,9 +42,9 @@ export default function (state = initialState, action) {
         case "0" /* A - Z */:
           return {
             ...state,
-            products: initProducts /*.sort((a, b) => {
+            products: initProducts.sort((a, b) => {
               return a.title.localeCompare(b.title);
-            }),*/,
+            }),
           };
         case "1" /* Z - A */:
           return {

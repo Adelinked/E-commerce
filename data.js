@@ -1,4 +1,5 @@
 import { dupArr } from "./lib/dupArr";
+import { DUP_INITIAL_DATA } from "./variables";
 
 const initData = [
   {
@@ -343,4 +344,4 @@ const initData = [
   },
 ];
 
-export let data = dupArr(initData, 2);
+export let data = dupArr(initData, DUP_INITIAL_DATA);

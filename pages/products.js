@@ -12,6 +12,7 @@ import Filter from "../components/Filter/Filter";
 import dynamic from "next/dynamic";
 //import Product from "../components/Product";
 import { getProductsServ } from "../lib/getProductsServ";
+import { NUM_INITIAL_PRODUCTS } from "../variables";
 
 const Product = dynamic(() => import("../components/Product"), {
   ssr: false,
@@ -37,7 +38,7 @@ const Products = ({ productsServ }) => {
     return () => controller?.abort();
   }, []);*/
   useEffect(() => {
-    dispatch(setProducts(productsServ));
+    dispatch(setProducts(productsServ.slice(0, NUM_INITIAL_PRODUCTS)));
   }, []);
 
   let filtredProducts = [...products];
