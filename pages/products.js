@@ -13,8 +13,10 @@ import dynamic from "next/dynamic";
 //import Product from "../components/Product";
 import { getProductsServ } from "../lib/getProductsServ";
 import { NUM_INITIAL_PRODUCTS } from "../variables";
+import dbConnect from "../lib/dbConnect";
+import Product from "../models/Product";
 
-const Product = dynamic(() => import("../components/Product"), {
+const ProductComp = dynamic(() => import("../components/Product"), {
   ssr: false,
 });
 
@@ -22,7 +24,6 @@ const Products = ({ productsServ }) => {
   const dispatch = useDispatch();
   const { products, filter, display } = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
-
   //dispatch(setProducts(productsServ));
   /*useEffect(() => {
     let controller = new AbortController();
@@ -102,7 +103,7 @@ const Products = ({ productsServ }) => {
                 }
               >
                 {filtredProducts.map((p, index) => (
-                  <Product key={p.id} {...p} num={index} />
+                  <ProductComp key={p.id} {...p} num={index} />
                 ))}
               </div>
             </>
@@ -121,5 +122,14 @@ const Products = ({ productsServ }) => {
 export default Products;
 
 export async function getStaticProps(context) {
-  return { props: { productsServ: await getProductsServ(), revalidate: 60 } };
+  let products = [];
+  await dbConnect();
+
+  try {
+    products = await Product.find({});
+  } catch (e) {
+    //some error
+  }
+
+  return { props: { productsServ: JSON.parse(JSON.stringify(products)) } };
 }

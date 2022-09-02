@@ -125,5 +125,5 @@ export default Index;
 export async function getStaticProps(context) {
   const url = "https://fakestoreapi.com/products?limit=5";
   const data = await axios.get(url);
-  return { props: { products: data.data }, revalidate: 60 };
+  return { props: { products: data.data } };
 }
