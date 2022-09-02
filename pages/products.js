@@ -131,5 +131,10 @@ export async function getStaticProps(context) {
     //some error
   }
 
-  return { props: { productsServ: JSON.parse(JSON.stringify(products)) } };
+  return {
+    props: {
+      productsServ: JSON.parse(JSON.stringify(products)),
+      revalidate: 60,
+    },
+  };
 }
