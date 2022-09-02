@@ -16,24 +16,10 @@ const Product = dynamic(() => import("../components/Product"), {
   ssr: false,
 });
 const Index = ({ products }) => {
-  //const [products, setProducts] = useState([]);
   const router = useRouter();
   const [email, setEmail] = useState();
   const dispatch = useDispatch();
 
-  /*useEffect(() => {
-    const controller = new AbortController();
-    (async () => {
-      const url = "./api";
-      try {
-        const data = await axios.get(url, { signal: controller.signal });
-        setProducts(data.data);
-        controller = null;
-      } catch (e) {}
-    })();
-    return () => controller?.abort();
-  }, []);*/
-  //
   return (
     <>
       <Head>
@@ -139,5 +125,5 @@ export default Index;
 export async function getStaticProps(context) {
   const url = "https://fakestoreapi.com/products?limit=5";
   const data = await axios.get(url);
-  return { props: { products: data.data } };
+  return { props: { products: data.data }, revalidate: 60 };
 }

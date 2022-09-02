@@ -121,5 +121,5 @@ const Products = ({ productsServ }) => {
 export default Products;
 
 export async function getStaticProps(context) {
-  return { props: { productsServ: await getProductsServ() } };
+  return { props: { productsServ: await getProductsServ(), revalidate: 60 } };
 }
