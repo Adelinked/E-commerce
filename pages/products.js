@@ -15,7 +15,6 @@ import { getProductsServ } from "../lib/getProductsServ";
 import { NUM_INITIAL_PRODUCTS } from "../variables";
 import dbConnect from "../lib/dbConnect";
 import Product from "../models/Product";
-
 const ProductComp = dynamic(() => import("../components/Product"), {
   ssr: false,
 });
@@ -124,17 +123,24 @@ export default Products;
 export async function getStaticProps(context) {
   let products = [];
   await dbConnect();
-
+  /*const collection = db.collection("products");
+  const changeStream = collection.watch();
+  changeStream.on("change", (next) => {
+    console.log("products change");
+  });*/
   try {
     products = await Product.find({});
   } catch (e) {
     //some error
   }
-
+  /*  Product.watch().on("change", async (data) => {
+    revalidate("/");
+    console.log("index revalidated");
+  });*/
   return {
     props: {
       productsServ: JSON.parse(JSON.stringify(products)),
     },
-    revalidate: 60,
+    /*revalidate: 60,*/
   };
 }
